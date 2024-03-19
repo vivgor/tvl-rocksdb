@@ -10,4 +10,14 @@ license = "MIT"
 
 [dependencies]
 autocxx = "0.26.0"
+tvl-librocksdb-sys = { path = "librocksdb-sys", version = "8.11.3"}
 moveit = "0.6.0"
+
+[dev-dependencies]
+tempfile = "3.10.1"
+
+[workspace]
+members = ["librocksdb-sys"]
+
+[profile.release]
+lto = true

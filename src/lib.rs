@@ -1,14 +1,18 @@
-pub fn add(left: usize, right: usize) -> usize {
-    left + right
-}
+pub extern crate moveit;
+pub extern crate tvl_librocksdb_sys as ffi;
 
-#[cfg(test)]
-mod tests {
-    use super::*;
+mod db;
+mod error;
+mod iter;
+mod slice;
+mod snapshot;
+mod transaction;
+mod write_batch;
 
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
-    }
-}
+pub use db::*;
+pub use error::*;
+pub use iter::*;
+pub use slice::*;
+pub use snapshot::*;
+pub use transaction::*;
+pub use write_batch::*;

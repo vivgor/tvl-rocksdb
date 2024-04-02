@@ -14,13 +14,26 @@ jobs:
           profile: minimal
           components: rustfmt, clippy
           toolchain: 1.75.0
-      - name: install liburing
+      - name: Install liburing
         run: sudo apt-get install -y liburing-dev clang
-      - name: cargo fmt
+      - name: Cargo fmt
         run: cargo fmt --all --check
-      - name: cargo clippy
+      - name: Cargo clippy
         run: cargo clippy --all --all-features --all-targets
-      - name: cargo test
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+      - uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: 1.75.0
+      - name: Install liburing
+        run: sudo apt-get install -y liburing-dev clang
+      - name: Cargo test
         run: cargo test --all --all-features
 
   audit:

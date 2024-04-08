@@ -157,6 +157,7 @@ options/db_options.cc
 options/options.cc
 options/options_helper.cc
 options/options_parser.cc
+options/offpeak_time_info.cc
 port/mmap.cc
 port/port_posix.cc
 port/win/env_default.cc
